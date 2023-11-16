@@ -69,7 +69,8 @@ const Chart = () => {
             <AreaChart data={data}>
                 <Area animationDuration={600} type='linear' dataKey='value' stroke='#ff667d' fillOpacity={1} strokeWidth={0.5} fill='url(#chartColor)'/>
                 <Tooltip contentStyle={darkMode ? {backgroundColor: '#111827'} : null} itemStyle={darkMode ? {color: '#ff667d'} : null}/>
-                <XAxis dataKey={filter == '1D' ? 'time' : 'date'} interval={filter == '1W' ? 55 : null} stroke={darkMode ? '#dedede' : 'gray'} />
+                {/* <XAxis dataKey='date' tickFormatter={filter == '1D' ? unixTime => moment(unixTime, 'MM/DD/YYYY').format('HH:mm') : null} interval={filter == '1W' ? 55 : "1D" ? 55 : null} stroke={darkMode ? '#dedede' : 'gray'} /> */}
+                <XAxis dataKey='date' interval={filter == '1W' ? 55 : "1D" ? 100 : null} stroke={darkMode ? '#dedede' : 'gray'} />
                 <YAxis domain={["dataMin", "dataMax"]} stroke={darkMode ? '#dedede' : 'gray'}/>
                 <defs>
                     <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
